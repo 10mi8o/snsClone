@@ -1,0 +1,29 @@
+
+<h1>呟き一覧</h1>
+<p><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <% @murmurs.each do |murmur| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <span class="content"><%= murmur.content %></span>
+      <div>
+        <%= link_to '詳細を確認する', murmur_path(murmur.id), class: "btn btn-success" %>
+      </div>
+      <div class="">
+        <%= link_to '投稿を編集する', edit_murmur_path(murmur.id),data: {confirm: '本当に編集しますか?'}, class: "btn btn-warning" %>
+      </div>
+      <div class="">
+        <%= link_to '投稿を削除する', murmur_path(murmur.id), method: :delete, data: {confirm: '本当に削除しますか？'}, class: "btn btn-danger" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-push-3 center-block">
+      <%= link_to '呟く', new_murmur_path, class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+  </div>
+</div>

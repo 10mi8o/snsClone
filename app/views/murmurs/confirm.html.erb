@@ -1,0 +1,12 @@
+<h3>以下の内容で、投稿する</h3>
+<%= form_with(model: @murmur, url: murmurs_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+
+  <p>本文:<%= @murmur.content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @murmur, url: new_murmur_path, local: true, method: 'get') do |form| %>
+<%= form.hidden_field :content %>
+<%= form.submit '戻る', name: 'back' %>
+<% end %>

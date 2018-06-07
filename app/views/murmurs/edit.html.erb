@@ -1,0 +1,22 @@
+<%= form_with(model: @murmur, local:true) do |form| %>
+
+<% if @murmur.errors.any? %>
+  <div class="error_render">
+    <h2><%= @murmur.errors.count %>件のエラーがあります</h2>
+    <ul>
+      <% @murmur.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<div class="murmur_title">
+  <%= form.label :content,name = '本文' %>
+  <%= form.text_field :content %>
+</div>
+<%= form.submit('投稿する') %>
+<% end %>
+
+<%= link_to '呟き一覧へ', murmurs_path, class: "btn btn-default" %>
